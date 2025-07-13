@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPANZ OFFICIAL - Premium Panel Services</title>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4d4d;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gold: #ffd700;
+            --vip: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #16213e);
+            color: var(--light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .header h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p.tagline {
+            font-size: 1.1rem;
+            color: #aaa;
+            font-style: italic;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .badge-premium {
+            background: linear-gradient(to right, var(--gold), var(--vip));
+            color: var(--dark);
+        }
+        
+        .badge-vip {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+            color: white;
+        }
+        
+        .badge-new {
+            background: linear-gradient(to right, #e74c3c, #f39c12);
+            color: white;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .pricing-table th {
+            background: rgba(106, 17, 203, 0.2);
+            padding: 12px;
+            text-align: left;
+            color: var(--gold);
+        }
+        
+        .pricing-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .pricing-table tr:hover {
+            background: rgba(106, 17, 203, 0.1);
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: rgba(37, 117, 252, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .feature-card h4 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+        
+        .contact-info {
+            background: rgba(255, 77, 77, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(106, 17, 203, 0.4);
+        }
+        
+        .btn-vip {
+            background: linear-gradient(to right, var(--vip), #e67e22);
+        }
+        
+        .guarantee {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .guarantee i {
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .payment-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .unlimited {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { color: var(--light); }
+            50% { color: var(--accent); }
+            100% { color: var(--light); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>XPANZ OFFICIAL <span class="badge badge-vip">VIP</span></h1>
+            <p class="tagline">Premium Panel Solutions with Maximum Security</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-shield-alt"></i> Secure & Affordable Panel Services</h2>
+            <p>Many sell cheap panels, but quality and security must be priorities. XPANZ Official meets your needs with affordable premium services!</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h4><i class="fas fa-check-circle"></i> 24/7 Active Bot</h4>
+                    <p>Our systems run continuously without interruption</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-lock"></i> Anti-Theft Script</h4>
+                    <p>Advanced protection against script theft</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bolt"></i> Anti-Delay</h4>
+                    <p>Fast response times guaranteed</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Full Guidance</h4>
+                    <p>We'll teach you until you can do it yourself</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-server"></i> Panel Services</h2>
+            
+            <h3><i class="fas fa-users"></i> Public Panel (Using Our VPS)</h3>
+            <table class="pricing-table">
+                <tr>
+                    <th>Specification</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>RAM 1 GB</td>
+                    <td>Rp 500</td>
+                </tr>
+                <tr>
+                    <td>RAM 2 GB</td>
+                    <td>Rp 1,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 3 GB</td>
+                    <td>Rp 1,500</td>
+                </tr>
+                <tr>
+                    <td>RAM 4 GB</td>
+                    <td>Rp 2,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 5 GB</td>
+                    <td>Rp 2,500</td>
+                </tr>
+                <tr>
+                    <td>RAM 6 GB</td>
+                    <td>Rp 3,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 7 GB</td>
+                    <td>Rp 3,500</td>
+                </tr>
+                <tr>
+                    <td>RAM 8 GB</td>
+                    <td>Rp 4,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 9 GB</td>
+                    <td>Rp 4,500</td>
+                </tr>
+                <tr>
+                    <td>RAM 10 GB</td>
+                    <td>Rp 5,000</td>
+                </tr>
+                <tr class="highlight">
+                    <td><i class="fas fa-infinity"></i> RAM UNLIMITED</td>
+                    <td class="unlimited">Rp 6,000</td>
+                </tr>
+            </table>
+            
+            <h3 style="margin-top: 30px;"><i class="fas fa-user-shield"></i> Private Panel (Using Your Own VPS)</h3>
+            <table class="pricing-table">
+                <tr>
+                    <th>Specification</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>RAM 1 GB</td>
+                    <td>Rp 1,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 2 GB</td>
+                    <td>Rp 2,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 3 GB</td>
+                    <td>Rp 3,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 4 GB</td>
+                    <td>Rp 4,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 5 GB</td>
+                    <td>Rp 5,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 6 GB</td>
+                    <td>Rp 6,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 7 GB</td>
+                    <td>Rp 7,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 8 GB</td>
+                    <td>Rp 8,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 9 GB</td>
+                    <td>Rp 9,000</td>
+                </tr>
+                <tr>
+                    <td>RAM 10 GB</td>
+                    <td>Rp 10,000</td>
+                </tr>
+                <tr class="highlight">
+                    <td><i class="fas fa-infinity"></i> RAM UNLIMITED</td>
+                    <td class="unlimited">Rp 12,000</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-crown"></i> Premium Business Panel</h2>
+            <p>For those who want to start a premium panel business with guaranteed security:</p>
+            
+            <table class="pricing-table">
+                <tr>
+                    <th>Package</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Reseller Panel</td>
+                    <td>Rp 10,000</td>
+                </tr>
+                <tr>
+                    <td>Admin Panel</td>
+                    <td>Rp 15,000</td>
+                </tr>
+                <tr>
+                    <td>Partner</td>
+                    <td>Rp 20,000</td>
+                </tr>
+                <tr>
+                    <td>Owner</td>
+                    <td>Rp 25,000</td>
+                </tr>
+                <tr>
+                    <td>Right Hand</td>
+                    <td>Rp 30,000</td>
+                </tr>
+                <tr class="highlight">
+                    <td><i class="fas fa-star"></i> VIP CHAIRMAN</td>
+                    <td class="unlimited">Rp 45,000</td>
+                </tr>
+            </table>
+            
+            <h3 style="margin-top: 20px;"><i class="fas fa-gift"></i> Benefits Package</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <h4><i class="fas fa-user-tie"></i> Reseller Benefits</h4>
+                    <ul>
+                        <li>Sell unlimited panels</li>
+                        <li>Anti-delay system</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-user-cog"></i> Admin Benefits</h4>
+                    <ul>
+                        <li>Create unlimited panels</li>
+                        <li>Can open reseller panels</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-handshake"></i> Partner Benefits</h4>
+                    <ul>
+                        <li>Can open admin panels</li>
+                        <li>Can open reseller panels</li>
+                        <li>Create unlimited panels</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-crown"></i> VIP Chairman Benefits</h4>
+                    <ul>
+                        <li>All previous benefits</li>
+                        <li>Sell unlimited subdomains</li>
+                        <li>Free WA channel admin</li>
+                        <li>Free web Nokos creator</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-unlock-alt"></i> WhatsApp Unban Services</h2>
+            <p><strong>PRICE: Rp 20,000</strong> - Get ALL METHOD OPTIONS</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h4><i class="fas fa-bolt"></i> Included Methods:</h4>
+                    <ul>
+                        <li>Fast Spam Method</li>
+                        <li>Permanent Review Method</li>
+                        <li>Permanent Hard Method</li>
+                        <li>Permanent Rock Method</li>
+                        <li>Official WhatsApp Method</li>
+                        <li>New MT Settings</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Full Guidance</h4>
+                    <p>Complete training until you can do it yourself</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-robot"></i> WhatsApp Bot Rental</h2>
+            
+            <table class="pricing-table">
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Contact Push Bot</td>
+                    <td>Rp 10,000</td>
+                </tr>
+                <tr>
+                    <td>JPM WhatsApp Bot</td>
+                    <td>Rp 10,000</td>
+                </tr>
+                <tr>
+                    <td>Group Guard Bot</td>
+                    <td>Rp 15,000</td>
+                </tr>
+                <tr>
+                    <td>WhatsApp Bug Bot</td>
+                    <td>Rp 20,000</td>
+                </tr>
+                <tr>
+                    <td>Telegram WA Bug Bot</td>
+                    <td>Rp 25,000</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-sim-card"></i> Nokos All Countries</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> Indonesian (+62)</h4>
+                    <p>Rp 5,000</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> Afghanistan (+93)</h4>
+                    <p>Rp 10,000</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> USA (+1)</h4>
+                    <p>Rp 20,000</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> Russia (+7)</h4>
+                    <p>Rp 20,000</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> China (+86)</h4>
+                    <p>Rp 25,000</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-flag"></i> Vietnam (+84)</h4>
+                    <p>Rp 12,000</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-cloud"></i> Digital Ocean VPS</h2>
+            
+            <table class="pricing-table">
+                <tr>
+                    <th>Specification</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>2 Core / 2GB RAM</td>
+                    <td>Rp 25,000</td>
+                </tr>
+                <tr>
+                    <td>4 Core / 2GB RAM</td>
+                    <td>Rp 30,000</td>
+                </tr>
+                <tr>
+                    <td>8 Core / 2GB RAM</td>
+                    <td>Rp 35,000</td>
+                </tr>
+                <tr>
+                    <td>8 Core / 4GB RAM</td>
+                    <td>Rp 45,000</td>
+                </tr>
+                <tr>
+                    <td>16 Core / 4GB RAM</td>
+                    <td>Rp 50,000</td>
+                </tr>
+                <tr>
+                    <td>16 Core / 8GB RAM</td>
+                    <td>Rp 65,000</td>
+                </tr>
+                <tr>
+                    <td>32 Core / 8GB RAM</td>
+                    <td>Rp 80,000</td>
+                </tr>
+            </table>
+            
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <strong>15-Day Warranty</strong><br>
+                    Active period 28-30 days<br>
+                    Free subdomain request<br>
+                    Free panel installation
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Other Services</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h4><i class="fas fa-user-graduate"></i> Training Services</h4>
+                    <ul>
+                        <li>WhatsApp Unban Training</li>
+                        <li>WhatsApp Ban Training</li>
+                        <li>OTP Reset Training</li>
+                        <li>Social Media Injection</li>
+                        <li>Nokos Training</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-store"></i> Sales Services</h4>
+                    <ul>
+                        <li>WhatsApp Badak Files</li>
+                        <li>VPS 2GB-32GB RAM</li>
+                        <li>Nokos All Countries</li>
+                        <li>WhatsApp Bot Scripts</li>
+                        <li>WA Channels/GB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h3><i class="fas fa-headset"></i> Contact Us</h3>
+            <p>Interested? Please contact us directly:</p>
+            
+            <div style="margin: 20px 0;">
+                <a href="https://t.me/xpanz10" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://wa.me/6285135366878" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Primary</a>
+                <a href="https://wa.me/6283116014312" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Backup</a>
+            </div>
+            
+            <h4><i class="fas fa-wallet"></i> Payment Methods</h4>
+            <div class="payment-methods">
+                <span class="payment-method">DANA: 085135366878</span>
+                <span class="payment-method">GOPAY: 085135366878</span>
+                <span class="payment-method">QRIS</span>
+            </div>
+            <p>QRIS Code: <a href="https://files.catbox.moe/bdhdcz.png" style="color: var(--accent);">https://files.catbox.moe/bdhdcz.png</a></p>
+        </div>
+        
+        <div class="footer">
+            <p>Thank you for your attention. Fast response 24 hours!</p>
+            <p><small>No Copyright, Text By Fanxz</small></p>
+        </div>
+    </div>
+</body>
+</html>
